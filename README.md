@@ -42,3 +42,11 @@ This is a login UI template with pure HTML / CSS.(Application name is considered
 7-segment displayer works with javascript.
 
 <img src="https://github.com/emrebicer/Animation-and-UI-/blob/master/4-7segmentdisplayer/7segment_gif.gif" width="150" height="250">
+
+
+
+## 7 - Clock
+7- Real time clock created with p5.js
+
+<img src="https://github.com/emrebicer/Animation-and-UI-/blob/master/7-Clock/clock.gif" width="500" height="500">
+
