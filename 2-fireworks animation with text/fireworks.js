@@ -5,9 +5,17 @@
 */
 
 
-var textToDisplay = "example <3";
-var canvasWidth = 800;
-var canvasHeight = 600;
+// Check url parameters
+var textToDisplay = gup('text') ? decodeURIComponent(gup('text')) : "example <3";
+let fullscreen = gup('fs') ;
+if(fullscreen){
+  var canvasWidth = window.screen.width;
+  var canvasHeight = window.screen.height;
+}
+else{
+  var canvasWidth = 800;
+  var canvasHeight = 600;
+}
 var fireworks = [];
 var particles = [];
 var counter = 0;
@@ -32,15 +40,6 @@ function setup(){
 function draw(){
   background(40,40,40,25);
   newText();
-
-
-  //draw text
-  /*
-  textSize(80);
-  textAlign(CENTER);
-  fill(0);
-  text('Emre Biçer', canvasWidth / 2, canvasHeight / 2);
-  */
 
 
   counter++;
@@ -110,13 +109,6 @@ function newText(){
 
     ellipse(points[i].x + randX,points[i].y + randY,5,5);
   }
-
-
-
-
-
-
-
 }
 
 
@@ -252,4 +244,14 @@ function firework(){
     fill(color(this.R, this.G, this.B));
     ellipse(this.xPos,this.yPos,this.radius,this.radius);
   }
+}
+
+
+function gup( name, url ) {
+  if (!url) url = location.href;
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( url );
+  return results == null ? null : results[1];
 }
